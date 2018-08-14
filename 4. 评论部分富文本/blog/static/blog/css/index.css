@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* CSS Document */
+/*左文章列表*/
+.topnews { margin: 20px 0; }
+
+.topnews .begin {
+	font-size: 16px; 
+	font-weight: bold; 
+	line-height: 36px; 
+	color: #333; 
+	border-bottom: #db6d4c 4px solid; }
+
+.topnews .begin b { }
+
+.topnews .begin span {
+	float: right; 
+	font-size: 12px;
+	font-weight: normal; }
+
+.topnews .begin span a {
+	display: inline-block; 
+	padding: 0 5px; }
+
+.topnews .begin span a:hover {
+	color: #000; }
+
+.blogs { 
+	padding: 30px 0; //上右下左 
+	position: relative; 
+	border-bottom: #CCC 1px solid;
+	 overflow: hidden; //内容过多以后，自动隐藏，scroll，这是变成滚筒样式 }
+
+.blogs h3 { 
+	font-size: 16px; 
+	font-weight: bold; 
+	transition: all .5s; 
+	margin-bottom: 10px; }
+
+.blogs h3 a { 
+	color: #474645; }
+
+.blogs h3 a:hover { 
+	color: #066; 
+	text-decoration: underline; }
+
+.blogs figure { 
+	float: left; 
+	width: 25%; 
+	overflow: hidden; }
+
+.blogs figure img { 
+	width: 100%; 
+	margin: auto;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s; 
+	transition: all 0.5s; }
+
+.blogs figure:hover img { 
+	-moz-transform: scale(1.1); 
+	-webkit-transform: scale(1.1); 
+	-o-transform: scale(1.1); 
+	-ms-transform: scale(1.1); }
+
+.blogs ul { 
+	float: right; 
+	line-height: 22px; 
+	width: 72%; 
+	color: #756F71;}
+
+.author {
+	overflow: hidden; 
+	clear: both; 
+	margin: 10px 0; 
+	display: inline-block; 
+	color: #838383; 
+	width: 100%;  }
+
+.author span {
+	margin: 0 10px 0 0; 
+	padding-left: 20px; }
+
+.author span a {
+	color: #759b08; }
+
+.author span a:hover {
+	text-decoration: underline; }
+
+.read {
+    float:right;
+    border: 1px solid black;
+    background-color: #CCCCCC;
+    padding: 1px 3px;
+}
+
+.read:hover{
+    background-color: #8A9B0F;
+}
+
+.button {
+  display: inline-block;
+  float: right;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 8px;
+  padding: 11px 5px 11px 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button:active {
+  background-color: #f4511e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+.lm { 
+	background: url(../images/newsbg01.png) no-repeat left center; }
+
+.dtime { 
+	background: url(../images/newsbg02.png) no-repeat left center; }
+
+.viewnum { 
+	background: url(../images/newsbg04.png) no-repeat left center; }
+
+.pingl { 
+	background: url(../images/newsbg03.png) no-repeat left center; }
+
+/* 折线图显示部分 */
+.diagram {
+	width: 100%;
+	height: 500px;
+	background-color: #FFF;
+}
+
+.diagram h3 {
+	line-height: 40px;
+	color: #38485A;
+	font-family: "微软雅黑",Arial,verdana;
+	font-size: 18px;
+	border-bottom: 1px;
+	solid #E6E6E6;
+	height: 40px; }
+
+.diagram #container {
+	border:1px solid #000;}
+
+
+/*图文列表*/
+.tuwen { 
+	width: 100%; 
+	clear: both;
+	overflow: hidden; 
+	margin: 20px 0; }
+
+.tuwen h3 { 
+	line-height: 40px; 
+	color: #38485A; 
+	font-size: 18px; 
+	border-bottom: 1px solid #E6E6E6; 
+	height: 40px; 
+	margin-bottom: 30px; }
+
+.tuwen li { 
+	overflow: hidden; 
+	clear: both; 
+	margin-bottom: 10px; }
+
+.tuwen li img { 
+	width: 70px; 
+	float: left; 
+	margin-right: 15px; }
+
+.tuwen li b { 
+	overflow: hidden; 
+	width: 100%; 
+	font-weight: 
+	normal; color: #333; 
+	font-size: 14px; 
+	line-height: 30px; }
+
+.tuwen li a b:hover { 
+	text-decoration: underline; color: #F60; }
+
+.tuwen li span { 
+	color: #999; 
+	margin-right: 10px;}
+
+.tuwen p { 
+	margin-top: 5px; }
+
+.tulanmu { 
+	background: url(../images/lanmbq.png) no-repeat center left; 
+	padding-left: 17px; }
+
+.tulanmu a { 
+	color: #999; }
+
+.tulanmu a:hover { 
+	color: #066; }
+
+.tutime { 
+	background: url(../images/datepng.png) no-repeat left center; 
+	padding-left: 15px; }
+
+.tuwen li:hover { 
+	background: #f4f3f3; }
+
+.paginator li{
+	float: left;
+	padding: 0 10px;
+	margin: 0 10px;
+	font-size: 18px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+li.active {
+    background-color: #190202;
+}
+
+a li:hover {
+	background-color: #190202;
+	}

@@ -1,0 +1,182 @@
+/* 上下篇文章的样式 */
+div.paper-info {
+    font-size: 10px;
+    margin-top: 0.5em;
+}
+div.paper-info span {
+    font-size: 14px;
+}
+
+p.pre-paper {
+    float:left;
+}
+
+p.next-paper {
+    float: right;
+}
+/* */
+div.blog {
+    margin-top: 30px;
+}
+
+.blog h1 {
+    font-family: "微软雅黑",Arial,verdana;
+    font-size: 28px;
+    font-weight: bold; }
+
+.blog h2 {
+    font-family: "微软雅黑",Arial,verdana; font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0px;
+    margin: 0px; }
+
+.blog h3 {
+	font-family: "微软雅黑",Arial,verdana;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 0.5em 0px; }
+
+.blog h4 {
+	font-family: "微软雅黑",Arial,verdana;
+	font-size: 1.15em;
+	font-weight: bold;
+	padding: 0px;
+	margin: 0.5em 0px; }
+
+.blog h5, h6 { font-size: 1.15em; font-weight: bold; padding: 0px; margin: 0.5em 0px; }
+.blog h1, h2, h3, h4 { color: rgb(51, 51, 51); text-shadow: 1px 1px 3px rgba(50, 50, 50, 0.3); }
+
+.blog p {
+	font-size: 1.15em;
+	font-weight: bold;
+	padding: 0;
+	margin: 0.5em 00px;}
+
+
+.codehilite {
+    background: #282c34;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 15px;
+    word-wrap: normal;
+    word-break: break-word !important;
+    word-break: break-all;
+    white-space: pre;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+div.tag {
+	border-top: 1px solid #0000000d;
+	margin-top:25px;
+}
+
+div.tag h5 {
+	font-family: "微软雅黑",Arial,verdana;
+	font-size:20px;
+	float: left;
+	padding-top: 10px;
+	}
+
+div.tag ul {
+	padding-top: 13px;}
+
+div.tag a {
+	font-size: 18px;
+	border: 1px solid #000;
+	border-radius: 15px;
+	padding: 1px 8px;
+	float: float;
+	margin: 0 10px;
+	}
+
+div.tag a:hover {
+	border: 1px solid red;	}
+
+/* 评论 */
+div.comment-area {
+	margin-top: 100px;}
+
+div.comment-area h3 {
+	font-size: 24px;}
+
+textarea#comment_text {
+	width: 99%;
+	}
+
+input.btn.btn-primary {
+	margin-right: 5px;}
+
+/* 登录和注册 */
+div.no-login {
+	height: 66px;
+	padding: 12px;
+	background-color: #eaeaea;
+	}
+
+div.no-login h3 {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10px;}
+
+div.no-login a.login {
+	border: 1px solid #ca0c16;
+	padding: 1px 5px;
+	border-radius: 10px;
+	background-color: #ca0c16;
+	color: #fff;
+	}
+
+div.no-login a.login:hover {
+	padding: 2px 6px;
+	background-color: red;}
+
+div.no-login a.login:active {
+	background-color: #ca0c16;
+  	box-shadow: 0 5px #666;
+  	transform: translateY(4px);}
+
+div.no-login a.register {
+	border: 1px solid #0f0cca;
+	padding: 1px 5px;
+	border-radius: 10px;
+	background-color: #0f0cca;
+	color: #fff;}
+
+
+div.no-login a.register:hover {
+	padding: 2px 6px;
+	background-color: #0f0cca;}
+
+div.no-login a.register:active {
+	background-color: #0f0cca;
+  	box-shadow: 0 5px #666;
+  	transform: translateY(4px);}
+
+/* 评论 */
+
+.django-ckeditor-widget {
+	margin-top: 15px;
+    width: 100%;
+}
+
+input.btn.btn-primary.pull-right {
+  display: inline-block;
+  float: right;
+  border-radius: 4px;
+  background-color: #38485a;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  font-size: 8px;
+  padding: 11px 11px 11px 11px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+input.btn.btn-primary.pull-right:active {
+  background-color: #f4511e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

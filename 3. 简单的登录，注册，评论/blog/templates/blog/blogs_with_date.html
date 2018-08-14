@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link href="{% static 'blog/css/blog_detail.css' %}" rel="stylesheet">
+</head>
+<body>
+	<h3> {{ blog.title }} </h3>
+	<p>{{ blog.content|safe }}</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+{% block js %}
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+{% endblock %}
+{% block feeling_active %}topnav_current{% endblock %}
+{% block content %}
+    <div class="l_box f_l">
+	    <div class="topnews">
+		    <div class="begin"><span>
+                </span>
+                <b>文章</b>阅读量
+            </div>
+		  {% block side_bar_top_one %}
+			<div class="diagram">
+				<h3>最近一周博客的阅读量</h3>
+				<div id="container"></div>
+			    <script>
+			        // 图表配置
+			        var options = {
+			            chart: { type: 'line' },
+			            title: { text: null },
+			            xAxis: {
+			                categories: {{ dates|safe }},   // x 轴分类
+			                tickmarkPlacement: 'on',
+			            },
+			            yAxis: {
+			                title: { text: null },
+			                labels:{ enabled: false },
+			                gridLineDashStyle: 'Dash',
+			            },
+			            series: [{                              // 数据列
+			                name: '阅读量',                     // 数据列名
+			                data: {{ read_nums }}               // 数据
+			            }],
+			            plotOptions: {
+			                line: {
+			                    dataLabels: {
+			                        enabled: true
+			                    }
+			                }
+			            },
+			            legend: { enabled: false },
+			            credits: { enabled: false },
+			        };
+			        // 图表初始化函数
+			        var chart = Highcharts.chart('container', options);
+			    </script>
+			</div>
+			{% endblock %}
+        </div>
+      </div>
+{% endblock %}

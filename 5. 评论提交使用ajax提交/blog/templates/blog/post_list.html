@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+{% block blog_active %}topnav_current{% endblock %}
+{% block content %}
+    <div class="l_box f_l">
+	    <div class="topnews">
+		    <div class="begin"><span>
+                    共有{{ page_of_blogs.paginator.count }}篇博客，
+			        当前第{{ page_of_blogs.number }}页，共{{ page_of_blogs.paginator.num_pages }}页
+                </span>
+                <b>文章</b>推荐
+            </div>
+		   {% for blog in blog_list %}
+				<div class="blogs">
+					<figure><img src="{% if blog.thumbnail %}
+					                      {{ blog.thumbnail.url }}
+										{% else %}
+											{% static 'blog/images/no_image.png' %}
+										{% endif %}">
+										</figure>
+					<ul>
+						<h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+						<p> {{ blog.content|safe|striptags|truncatechars:120 }}</p>
+						<p class="author">
+							<span class="lm f_l">
+								<a href="{% url 'blogs_with_categories' blog.pk %}">{{ blog.category }}</a></span>
+				                <span class="dtime f_l">{{ blog.publish }}</span>
+				                <span class="viewnum f_r">浏览（<a href="/">{{ blog.get_read_num }}</a>）</span>
+				                <span class="pingl f_r">评论（<a href="/">30</a>）</span>
+						</p>
+						<button class="button" onclick="window.location.href='{% url 'blog_detail' blog.pk %}'"><span>全文阅读</span></button>
+						
+					</ul>
+				    </div>
+            {% empty %}
+	                <span> 暂无文章，有事联系版主 </span>
+		    {% endfor %}
+        </div>
+        <div class="paginator">
+          <ul class="pagination">
+              {% if page.has_previous %}
+                <li>
+	                <a href="?page={{ blog_list.pre_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+	                </a>
+                </li>
+              {% endif %}
+          
+	          {% for page_num in page_range %}
+	            {% if page_num == page_of_blogs.number %}
+	                <a><li class='active'> {{ page_num }}</li></a>
+                {% else %}
+	                {% if page_num == '...' %}
+		                <li> {{ page_num }}</li>
+	                {% else %}
+	                    <a href="?page={{ page_num }}"> <li>{{ page_num }}</li> </a>
+	                {% endif %}
+	            {% endif %}
+	          {% endfor %}
+	              {% if page.has_next %}
+		                <a href="?page={{ blog_list.next_page_number }}" aria-label="Next">
+	                        <li>
+		                        <span aria-hidden="true">&raquo;</span>
+	                        </li>
+	                    </a>
+	              {% endif %}
+          </ul>
+        </div>
+      </div>
+{% endblock %}
