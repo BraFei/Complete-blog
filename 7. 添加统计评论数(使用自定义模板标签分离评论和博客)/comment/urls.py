@@ -1,7 +1,6 @@
 from django.urls import path
-from . import views
-
+from .views import *
 
 urlpatterns = [
-    path('update_comment', views.update_comment, name='update_comment')
+	path('update_comment', update_comment, name='update_comment'),
 ]

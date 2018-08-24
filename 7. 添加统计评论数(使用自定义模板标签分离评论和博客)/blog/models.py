@@ -1,26 +1,51 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.fields import GenericRelation
-from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils import timezone
 from read_statistics.models import ReadNumExpandMethod, ReadDetail
+from django.contrib.contenttypes.fields import GenericRelation
 
-class BlogType(models.Model):
-    type_name = models.CharField(max_length=15)
 
-    def __str__(self):
-        return self.type_name
+class PublishedManager(models.Manager):
+	def get_queryset(self):
+		return super(PublishedManager, self).get_queryset().filter(status='published')
+
+
+# Create your models here.
+class Category(models.Model):
+	name = models.CharField(max_length=10)
+	
+	def __str__(self):
+		return self.name
+
+
+class Tag(models.Model):
+	name = models.CharField(max_length=10)
+	
+	def __str__(self):
+		return self.name
+
 
 class Blog(models.Model, ReadNumExpandMethod):
-    title = models.CharField(max_length=50)
-    blog_type = models.ForeignKey(BlogType, on_delete=models.DO_NOTHING)
-    content = RichTextUploadingField()
-    author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    read_details = GenericRelation(ReadDetail)
-    created_time = models.DateTimeField(auto_now_add=True)
-    last_updated_time = models.DateTimeField(auto_now=True)    
+	STATUS_CHOICES = (
+		('draft', 'Draft'), ('published', 'Published'),)
+	title = models.CharField(max_length=30)
+	content = models.TextField()
+	category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+	tag = models.ManyToManyField(Tag)
+	author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+	read_details = GenericRelation(ReadDetail)
+	thumbnail = models.ImageField(upload_to='blog/%Y/%m/%d', blank=True)
+	created = models.DateTimeField(auto_now_add=True)
+	update = models.DateTimeField(auto_now=True)
+	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+	publish = models.DateTimeField(default=timezone.now)
+	
+	objects = models.Manager()
+	published = PublishedManager()
+	
+	def __str__(self):
+		return self.title
+	
+	class Meta:
+		ordering = ['-created']
 
-    def __str__(self):
-        return "<Blog: %s>" % self.title
-
-    class Meta:
-        ordering = ['-created_time']

@@ -1,10 +1,18 @@
 from django.contrib import admin
-from .models import BlogType, Blog
+from .models import Category, Tag, Blog
 
-@admin.register(BlogType)
-class BlogTypeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'type_name')
+
+# Register your models here.
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+	list_display = ['id', 'name']
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+	list_display = ['id', 'name']
+
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'blog_type', 'author', 'get_read_num', 'created_time', 'last_updated_time')
+	list_display = ['id', 'title', 'author', 'created', 'update']
