@@ -6,17 +6,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Comment(models.Model):
-	content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING)
+	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
 	object_id = models.PositiveIntegerField()
 	content_object = GenericForeignKey('content_type', 'object_id')
 	
 	text = models.TextField()
 	comment_time = models.DateTimeField(auto_now_add=True)
-	user = models.ForeignKey(User, related_name='comments', on_delete=models.DO_NOTHING)
+	user = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
 	
-	root = models.ForeignKey('self', related_name='root_comment', null=True, on_delete=models.DO_NOTHING)  # 获取一条评论下所有的评论
-	parent = models.ForeignKey('self', related_name='parent_comment', null=True, on_delete=models.DO_NOTHING)
-	reply_to = models.ForeignKey(User, related_name='replies', null=True, on_delete=models.DO_NOTHING)
+	root = models.ForeignKey('self', related_name='root_comment', null=True, on_delete=models.CASCADE)  # 获取一条评论下所有的评论
+	parent = models.ForeignKey('self', related_name='parent_comment', null=True, on_delete=models.CASCADE)
+	reply_to = models.ForeignKey(User, related_name='replies', null=True, on_delete=models.CASCADE)
 	
 	class Meta:
 		ordering = ['comment_time']
